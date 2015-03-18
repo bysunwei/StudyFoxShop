@@ -1,0 +1,27 @@
+
+
+<div class="pageContent" style="border-top-width:1px">
+    <form method="post" action="__MODULE__/authGroup/updateGroup" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone);">
+     	<input type="hidden" name="ruleid" value="{$Think.get.id}" />
+        <input type="hidden" name="callbackType" value="closeCurrent"  />
+        <div layoutH='37'>
+            	<h2 class="contentTitle" style="border-bottom:none; background-color:#ebf0f5; margin-bottom:0">{$cat_name}</h2>
+                <div class="pageFormContent" style="border-width:0"> 
+                	<volist name="node" id="node1">
+                    	<fieldset>
+                        	<legend>&nbsp;{$node1.title}&nbsp;</legend>
+                            <volist name="node1._child" id="node2">
+                            <label style=" width:130px; padding-right:10px"><input type="checkbox" name="groupAttr" value="{id:'{$node2.id}',attrName:'{$node2.title}',attrId:'{$node2.id}'}"/>{$node2.title}</label>
+                            </volist>
+                        </fieldset>
+                    </volist>
+                </div>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="button" multLookup="groupAttr">选择带回</button></div></div></li>
+                <div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+            </ul>
+        </div>
+    </form>
+</div>

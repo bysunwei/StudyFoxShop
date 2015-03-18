@@ -1,0 +1,100 @@
+<style type="text/css">
+.pageFormContent span{ padding-left:0}
+</style>
+<script type="text/javascript">
+$(function()
+{
+	$('#cat_id').change(function(){
+		var catid=$(this).children('option:selected').val();
+		$('#searchPublicAttr').attr('href','__URL__/searchPublicAttr/cat_id/'+catid);
+	})
+})
+</script>
+
+<div class="pageContent">
+    <form method="post" action="__CONTROLLER__/update" enctype="multipart/form-data" class="pageForm required-validate" onsubmit="return iframeCallback(this,dialogAjaxDone);">
+    	<input type="hidden" name="callbackType" value="closeCurrent" />
+        <input type="hidden" name="navTabId" value="{$Think.request.navTabId}"/>
+        <input type="hidden" name="id" value="{$Think.request.id}"/>
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>分类名称：</label>
+               	 <select id="cat_id" name="cat_id" style="width:230px;">
+                  <volist name="categorylist" id="volist">
+                    <option value="{$volist.id}"  <if condition="$volist.id eq $vo['cat_id']">selected</if>  <if condition="$volist.cat_level neq 3"> disabled </if>  >{$volist.cat_name}</option>
+                  </volist>
+                  </select>
+            </div>
+            <div class="unit">
+                <label>公共属性ID组：</label>
+                <input type="text" name="group.attrName" class="readonly" size="33" value="" readonly="readonly"/>
+                <input type="text" name="group.attrId" class="readonly" size="33"  readonly="readonly" value="{$vo.public_attr_id}"/>
+                <a id="searchPublicAttr" class="unit btn" href="__URL__/searchPublicAttr/cat_id/{$vo.cat_id}" target="dialog" mask="true" title="选择公共属性ID" width="800" height="600" lookupGroup="group">选择公共属性</a>
+            </div>
+            <div class="unit">
+                <label>商品名称：</label>
+                <input type="text" name="goods_name" class="required" size="33"  value="{$vo.goods_name}"/>
+            </div>
+              <div class="unit">
+                <label>补充说明：</label>
+                <input type="text" name="goods_name_exp" class="required" size="33" value="{$vo.goods_name_exp}"/>
+            </div>
+            <div class="unit">
+                <label>库存：</label>
+                <input type="text" name="goods_num" class="required" size="33" value="{$vo.goods_num}"/>
+            </div>
+            <div class="unit">
+                <label>重量：</label>
+                <input type="text" name="goods_weight" class="required" size="33" value="{$vo.goods_weight}"/>
+            </div>
+            <div class="unit">
+                <label>价格：</label>
+                <input type="text" name="goods_price" class="required" size="33"  value="{$vo.goods_price}"/>
+            </div>
+            <div class="unit">
+                <label>是否促销：</label>
+                <select name="is_promote">
+                	<option <if condition="$vo.is_promote eq 0">selected</if> value="0">否</option>
+                    <option <if condition="$vo.is_promote eq 1">selected</if> value="1">是</option>
+                </select>
+            </div>
+            <div class="unit">
+                <label>促销日期：</label>
+                <input type="text" name="promote_start_date" class="date" dateFmt="yyyy-MM-dd HH:mm:ss" readonly="readonly" value="{$vo.promote_start_date}"/>
+                <a class="inputDateButton" href="#">选择</a>
+                <span>至&nbsp;&nbsp;&nbsp;</span>
+                <input type="text" name="promote_end_date" class="date" dateFmt="yyyy-MM-dd HH:mm:ss" readonly="readonly" value="{$vo.promote_end_date}"/>
+                <a class="inputDateButton" href="#">选择</a>
+            </div>
+           	<div class="unit">
+                <label>商品图片：</label>
+                <img src="__UPLOAD__{$vo.goods_img}" style="width:50px; height:50px"/>
+            </div>
+            <div class="unit">
+                <label>重新上传：</label>
+                <input type="file" name="goods_img"  value=""/>
+            </div>
+            <div class="unit">
+                <label>是否销售：</label>
+                <select name="is_on_sale">
+                	<option <if condition="$vo.is_on_sale eq 0">selected</if> value="0">否</option>
+                    <option <if condition="$vo.is_on_sale eq 1">selected</if> value="1">是</option>
+                </select>
+            </div>
+            <div class="unit">
+            	<label>上市日期：</label>
+                 <input type="text" name="goods_ontime" class="date" dateFmt="yyyy-MM-dd" readonly="readonly" value="{$vo.goods_ontime}"/>
+                <a class="inputDateButton" href="#">选择</a>
+            </div>
+            <div class="unit">
+                 <textarea class="editor" name="goods_desc" tools="mfull" style="display:none; width:750px; height:300px" upMediaUrl="__CONTROLLER__/upload/" upFlashUrl="__CONTROLLER__/upload/" upLinkUrl="__CONTROLLER__/upload/" upImgUrl="__CONTROLLER__/upload/"  >{$vo.goods_desc|stripslashes}</textarea>
+            </div>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+                <div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+            </ul>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,59 @@
+<div class="pageContent">
+    <form method="post" action="__URL__/update" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone);">
+    	<input type="hidden" name="callbackType" value="closeCurrent" />
+        <input type="hidden" name="navTabId" value="{$Think.request.navTabId}"/>
+        <input type="hidden" name="id" value="{$Think.request.id}"/>
+        <div class="pageFormContent">
+            <div class="unit">
+                <label>用户名：</label>
+                <input type="text" name="username" class="required alphanumerichina" size="33" maxlength="20" value="{$vo.username}" readonly style="color:blue"/>
+            </div>
+            <div class="unit">
+                <label>用户组：</label>
+                <input type="text" name="group.groupName" class="readonly" size="33" value="{$vo.group_name}" readonly="readonly"/>
+                <input type="hidden" name="group.groupId" class="readonly" size="33" value="{$vo.group_id}" readonly="readonly"/>
+                <a class="unit btn" href="__URL__/searchGroup/groupId/{$vo.group_id}" target="dialog" mask="true" title="选择用户组" width="400" height="300" lookupGroup="group">选择用户组</a>
+            </div>
+            <div class="unit">
+                <label>邮　箱：</label>
+                <input type="text" name="email" class="required email" size="33" maxlength="50" value="{$vo.email}"/>
+            </div>
+            <div class="unit">
+                <label>性　别：</label>
+                <select name="sex">
+                	<option value="1" <if condition="$vo.sex eq 1">selected</if> >男</option>
+                    <option value="0" <if condition="$vo.sex eq 0">selected</if> >女</option>
+                </select>
+            </div>
+            <div class="unit">
+                <label>资　金：</label>
+                <input type="text" name="user_money" class="number " size="33" maxlength="50" value="{$vo.user_money}"/>
+            </div>
+            <div class="unit">
+                <label>Q　Q：</label>
+                <input type="text" name="qq" class="digits " size="33" maxlength="15" value="{$vo.qq}"/>
+            </div>
+            <div class="unit">
+                <label>手　机：</label>
+                <input type="text" name="mobile" class="phone" size="33" maxlength="11" value="{$vo.mobile}"/>
+            </div>
+            <div class="unit">
+                <label>状　态：</label>
+                <select name="status" style="width:55px;">
+                	<option value="1" <if condition="$vo.status eq 1">selected</if> >正常</option>
+                    <option value="0" <if condition="$vo.status eq 0">selected</if> >禁止</option>
+                </select>
+            </div>
+            <div class="unit">
+                <label>备　注：</label>
+                <textarea name="remark" rows="3" cols="50" >{$vo.remark}</textarea>
+            </div>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+                <div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+            </ul>
+        </div>
+    </form>
+</div>

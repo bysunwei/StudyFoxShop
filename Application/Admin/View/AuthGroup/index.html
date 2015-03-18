@@ -1,0 +1,81 @@
+<div class="pageHeader">
+	<form id="pagerForm" action="__MODULE__/authGroup" method="post" onsubmit="return navTabSearch(this)">
+    	<input type="hidden" name="pageNum" value="1" />
+        <input type="hidden" name="numPerPage" value="{$numPerPage}" /><!--【可选】每页显示多少条-->
+        <div class="searchBar">
+        	<ul class="searchContent">
+            	<li>
+                	<label>查找范围：</label>
+                    <select name="keytype">
+                    	<option value="title" <if condition="$Think.post.keytype eq 'title'">selected</if> >用户组</option>
+                    </select>
+                </li>
+                <li>
+                	<label>关键字：</label>
+                    <input name="keyword" type="text" size="25" value="{$Think.post.keyword}"/>
+                </li>
+            </ul>
+            <div class="subBar"> 
+            	<ul>
+                	<li>
+                    	<div class="buttonActive">
+                        	<div class="buttonContent"> 
+                            	<button type="submit">查询</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>
+<!--页内容-->
+<div class="pageContent">
+	<!--操作按钮-->
+    <div class="panelBar">
+		<ul class="toolBar">
+			<li><a class="add" href="__MODULE__/authGroup/add/navTabId/{$Think.CONTROLLER_NAME|strtolower}_{$Think.ACTION_NAME|strtolower}" target="dialog" mask="true" maxable="false" width="550"><span>新增</span></a></li>
+			<li><a title="确实要删除这些记录吗?" target="selectedTodo" rel="id" posttype="string"  href="__MODULE__/authGroup/foreverdelete/navTabId/{$Think.CONTROLLER_NAME|strtolower}_{$Think.ACTION_NAME|strtolower}" warn="请至少选择一用户组" class="delete"><span>删除</span></a></li>
+			<li><a class="edit" href="__MODULE__/authGroup/edit/navTabId/{$Think.CONTROLLER_NAME|strtolower}_{$Think.ACTION_NAME|strtolower}/id/{sid_authgroup}" target="dialog" warn="请选择一个用户" width="550" height="380"><span>编辑</span></a></li>
+		</ul>
+	</div>
+    <!--数据显示-->
+    <table class="table" width="100%" layoutH="140">
+		<thead>
+			<tr>
+				<th width="4%" align="center"><input type="checkbox" group="id" class="checkboxCtrl"></th>
+				<th width="12%">编号</th>
+                <th width="12%">用户组</th>
+                <th width="16%">状态</th>
+                <th width="12%">操作</th>
+			</tr>
+		</thead>
+		<tbody>
+        <volist name="list" id="vo">
+        	<tr target="sid_authgroup" rel="{$vo['id']}">
+				<td><input name="id" value="{$vo['id']}" type="checkbox"></td>
+				<td>{$vo['id']}</td>
+                <td>{$vo['title']}</td>
+                <td><if condition="$vo['status'] eq 1">启用<else/>停用</if></td>
+				<td><a href="__MODULE__/authGroup/setRule/id/{$vo['id']}" target="dialog" mask="true" width="700" height="500" style="color: #06C">分配规则</a></td>
+            </tr>
+        </volist>
+         </tbody>
+	</table>
+    <!--数据分页-->
+    <div class="panelBar">
+		<div class="pages">
+			<span>显示</span>
+			<select class="combox" name="numPerPage" onchange="navTabPageBreak({numPerPage:this.value})">
+				<option {$numPerPage==10?"selected":"" } value="10" >10</option>
+				<option {$numPerPage==15?"selected":"" } value="15">15</option>
+				<option {$numPerPage==100?"selected":"" } value="100">100</option>
+				<option {$numPerPage==200?"selected":"" } value="200">200</option>
+			</select>
+			<span>条，共{$totalCount==""?0:$totalCount}条</span>
+		</div>
+		
+		<div class="pagination" targetType="navTab" totalCount="{$totalCount}" numPerPage="{$numPerPage}" pageNumShown="10" currentPage="{$currentPage}"></div>
+
+	</div>
+</div>

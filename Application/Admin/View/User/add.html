@@ -1,0 +1,43 @@
+<div class="pageContent">
+    <form method="post" action="__URL__/insert" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone);">
+    	<input type="hidden" name="callbackType" value="closeCurrent" />
+        <input type="hidden" name="navTabId" value="{$Think.request.navTabId}"/>
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>用户名：</label>
+                <input type="text" name="username" class="required alphanumerichina" size="33" maxlength="20" value=""/>
+            </div>
+            <div class="unit">
+                <label>密码：</label>
+                <input type="password" name="password" class="required alphanumeric " size="33" maxlength="16" value=""/>
+            </div>
+            <div class="unit">
+                <label>用户组：</label>
+                <input type="text" name="group.groupName" class="readonly" size="33" value="" readonly="readonly"/>
+                <input type="hidden" name="group.groupId" class="readonly" size="33" value="" readonly="readonly"/>
+                <a class="unit btn" href="__URL__/searchGroup" target="dialog" mask="true" title="选择用户组" width="400" height="300" lookupGroup="group">选择用户组</a>
+            </div>
+            <div class="unit">
+                <label>邮箱：</label>
+                <input type="text" name="email" class="required email" size="33" maxlength="50" value=""/>
+            </div>
+              <div class="unit">
+                <label>状态：</label>
+                <select name="status">
+                	<option value="1">正常</option>
+                    <option value="0">禁止</option>
+                </select>
+            </div>
+            <div class="unit">
+                <label>备注：</label>
+                <textarea name="remark" rows="3" cols="50"> </textarea>
+            </div>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+                <div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+            </ul>
+        </div>
+    </form>
+</div>

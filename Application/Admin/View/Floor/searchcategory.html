@@ -1,0 +1,49 @@
+<div class="page">
+    <div class="pageHeader">
+        <form id="pagerForm" action="__URL__/searchCategory" method="post" onSubmit="return dialogSearch(this)">
+            <div class="searchBar">
+                <ul class="searchContent">
+                    <li style="width:350px">
+                        <label>商品分类名称：</label>
+                        <select name="id">
+                          <volist name="category" id="volist">
+                            <option value="{$volist.id}"  <if condition="$volist.id eq $category_id">selected</if> >{$volist.cat_name}</option>
+                          </volist>
+                        </select>
+                    </li>
+                </ul>
+                <div class="subBar"> 
+                    <ul>
+                        <li>
+                            <div class="buttonActive">
+                                <div class="buttonContent"> 
+                                    <button type="submit">查询</button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="pageContent"
+            <div layoutH='100'>
+                    <div class="pageFormContent" style="border-width:0"> 
+                        <volist name="node" id="node1">
+                            <fieldset>
+                                <legend>&nbsp;{$node1.cat_name}&nbsp;</legend>
+                                <volist name="node1._child" id="node2">
+                                <label style=" width:130px; padding-right:10px"><input type="radio" name="groupAttr" value="{id:'{$node2.id}',attrName:'{$node2.cat_name}',attrId:'{$node2.id}'}"/>{$node2.cat_name}</label>
+                                </volist>
+                            </fieldset>
+                        </volist>
+                    </div>
+            </div>
+            <div class="formBar">
+                <ul>
+                    <li><div class="buttonActive"><div class="buttonContent"><button type="button" multLookup="groupAttr">选择带回</button></div></div></li>
+                    <div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+                </ul>
+            </div>
+    </div>
+</div>

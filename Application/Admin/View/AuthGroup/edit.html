@@ -1,0 +1,30 @@
+<div class="pageContent">
+    <form method="post" action="__MODULE__/authGroup/update" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone);">
+    	<input type="hidden" name="callbackType" value="closeCurrent" />
+        <input type="hidden" name="navTabId" value="{$Think.request.navTabId}"/>
+        <input type="hidden" name="id" value="{$Think.request.id}"/>
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>用户组：</label>
+                <input type="text" name="name" class="required" size="33" maxlength="80" value="{$vo.title}" readonly style="color:blue"/>
+            </div>
+            <div class="unit">
+                <label>状　态：</label>
+                <select name="status" style="width:55px;">
+                	<option value="1" <if condition="$vo.status eq 1">selected</if> >正常</option>
+                    <option value="0" <if condition="$vo.status eq 0">selected</if> >停用</option>
+                </select>
+            </div>
+            <div class="unit">
+                <label>条　件：</label>
+                <input type="text" name="condition" class="" size="33" maxlength="100" value="{$vo.condition}"/>
+            </div>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+                <div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+            </ul>
+        </div>
+    </form>
+</div>*

@@ -1,0 +1,357 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>雪狐ThinkPHP商城系统</title>
+<load href="__PUBLIC__/themes/{$Think.config.DEFAULT_THEME}/css/main.css" />
+<load href="__PUBLIC__/themes/{$Think.config.DEFAULT_THEME}/css/lrtk.css" />
+
+
+
+<load href="__PUBLIC__/themes/{$Think.config.DEFAULT_THEME}/js/jquery-1.7.2.min.js" />
+<load href="__PUBLIC__/themes/{$Think.config.DEFAULT_THEME}/js/jquery.superslide.2.1.1.js" /><!--导航幻灯片-->
+<load href="__PUBLIC__/themes/{$Think.config.DEFAULT_THEME}/js/scrollpic.js" />		<!--导航滚动幻灯片-->
+<load href="__PUBLIC__/themes/{$Think.config.DEFAULT_THEME}/js/base.js" />			<!--楼层标签切换-->
+<load href="__PUBLIC__/themes/{$Think.config.DEFAULT_THEME}/js/lib.js" />			<!--楼层标签切换-->
+<load href="__PUBLIC__/themes/{$Think.config.DEFAULT_THEME}/js/MSClass.js" />		<!--四格幻灯片-->
+</head>
+
+
+<body>
+	<div id="shortcut">
+    	<div class="w">
+        	<ul class="lh">
+            	<li><span></span>收藏雪狐商城</li>
+            </ul>
+            <ul class="lr">
+            	<li>
+                您好，欢迎来到雪狐商城！
+                <a href="{:U('login/index')}">[登录]</a>
+                <a href="{:U('regist/index')}">[免费注册]</a>
+                </li>
+                <li><s></s>我的订单</li>
+            </ul>
+        </div>
+    </div>
+    <!--shortcut end-->
+    <div id="header">  
+    	<div id="header-top" class="w clear">
+        	<div id="logo" class="lh">
+            	<img src="__PUBLIC__/themes/{$Think.config.DEFAULT_THEME}/images/header_logo.png" alt="雪狐商城">
+            </div>
+            <!--logo end-->
+            <div id="search-top">
+            	<div class="search-form clear">
+            		<input type="input" class="text" />    
+           			<input value="搜 索" type="button" class="button" />
+                </div>         
+               <ul id="hotwords">
+                	<li class="one"><strong>热门搜索：</strong></li>
+                    <li><a href="###" target="_blank" style="color:red">校园之星</a></li>
+                    <li><a href="###" target="_blank">礼品卡</a></li>
+                    <li><a href="###" target="_blank">四件套</a></li>
+                    <li><a href="###" target="_blank">九阳</a></li>
+                    <li><a href="###" target="_blank">行车记录仪</a></li>
+                    <li><a href="###" target="_blank">LG</a></li>
+                    <li><a href="###" target="_blank">G2</a></li>
+                    <li><a href="###" target="_blank">考研大纲</a></li>
+                </ul>
+            </div>
+            <!--search-top end-->
+          	<ul class=" box lr">
+           		<li id="mystudyim" class="lh">
+            		<span></span><a href="###">我的雪狐</a><b></b>
+            	</li>
+       	     	<li id="shoppingcart" class="lh">
+            		<span>1</span><a href="###">去购物车结算</a><b></b>
+           		</li>
+            </ul>
+        </div>
+    </div>
+    <!--header end-->
+    <div id="nav">
+    	<div class="w">
+        	<div id="category" >
+            	<div class="mt lh">
+                	<a href="###">全部商品分类</a>
+                </div>
+                <div class="mc">
+                	<volist name="category" id="vo" key="k">
+                	<div class="item"  <if condition="$k eq 1">onMouseOver="this.className='item hover fore1'"  onMouseOut="this.className='item fore1'"<else/>onMouseOver="this.className='item hover '"  onMouseOut="this.className='item'"</if>  >
+                    	<h3><a href="##">{$vo.cat_name}</a><s></s></h3>
+                        <div class="i-mc">
+                        	<div class="close" onClick="this.parentNode.parentNode.className='item'">×</div>
+                        	<div class="subitem">
+                            	<volist name="vo['subitem']" id="sub">
+                                <dl class="fore1 clear" >
+                                	<dt><a href="#">{$sub.cat_name}</a></dt>
+                                    <dd>{$sub.id|getCatName}</dd>
+                                </dl>
+                                </volist>
+                            </div>
+                            <div class="cat-right">
+                            	<dl class="category-promotions clear">
+                                	<dd>
+                                    	<ul class="clear">
+                                        	<volist name="vo['ad']" id="subad">
+                                        	<li><a href="{$subad.ad_link}" target="_blank"><img width="194" height="70" src="__PUBLIC__/themes/{$Think.config.DEFAULT_THEME}/upload/{$subad.ad_img}" title="{$subad.ad_name}"></a></li>
+                                           	</volist>
+                                        </ul>
+                                    </dd>
+                                </dl>
+                                <dl class="category-brands clear">
+                                	<dt>推荐品牌</dt>
+                                	<ul>
+                                    <volist name="vo['brand']" id="brand" >
+                                    	<li class="li_1 li_2"><a href="{$brand.brand_url}" target="_blank">{$brand.brand_name}</a></li>
+                                    </volist>
+                                    </ul>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+              		</volist>  
+                </div>
+            </div>
+            <ul id="navitens">
+            	<li class="current"><a>首页</a></li>
+                <volist name="nav" id="vo"> 
+                	<li><a href="{$vo.url}">{$vo.name}</a></li>
+                </volist>
+            </ul>
+        </div>
+    </div>
+	<!--nav end-->
+    <div class="w clear">
+    	<div id="o-slide">
+        	<div class="slide">
+                <ul class="51buypic">
+                	<volist name="ad" id="advo">
+                    <li><a href="{$advo.ad_link}" target="_blank"><img src="__PUBLIC__/themes/{$Think.config.DEFAULT_THEME}/upload/{$advo.ad_img}" /></a></li>
+                	</volist>
+                </ul>
+             
+                <div class="num">
+                    <ul></ul>
+                </div>
+                      <script>
+            /*鼠标移过，左右按钮显示*/
+            $(".slide").hover(function(){
+                $(this).find(".prev,.next").fadeTo("show",0.1);
+            },function(){
+                $(this).find(".prev,.next").hide();
+            })
+            /*鼠标移过某个按钮 高亮显示*/
+            $(".prev,.next").hover(function(){
+                $(this).fadeTo("show",0.7);
+            },function(){
+                $(this).fadeTo("show",0.1);
+            })
+            $(".slide").slide({ titCell:".num ul" , mainCell:".51buypic" , effect:"fold", autoPlay:true, delayTime:1000 , autoPage:true });
+            </script>
+            </div>
+      		<!--slide end-->
+            <div id="mscroll">
+  				<div class="ctrl" id="mscroll-ctrl-prev"><b></b></div>
+                <div class="ctrl" id="mscroll-ctrl-next"><b></b></div>
+            	<div class="o-list">
+                	<div class="list" id="rollphoto1">
+                  		<ul>
+                        <volist name="adscroll" id="voscroll">
+                        	<li class="item">
+                            <a href="{$voscroll.ad_link}" target="_blank"><img width="202" height="159" src="__PUBLIC__/themes/{$Think.config.DEFAULT_THEME}/upload/{$voscroll.ad_img}"></a>
+                            </li>
+                        </volist>
+                		</ul>
+                    </div>
+                </div>
+            </div>
+            <script language=javascript type=text/javascript>
+                var scrollPic_01 = new ScrollPic();
+                scrollPic_01.scrollContId   = "rollphoto1"; //内容容器ID
+                scrollPic_01.arrLeftId      = "mscroll-ctrl-prev";//左箭头ID
+                scrollPic_01.arrRightId     = "mscroll-ctrl-next"; //右箭头ID
+                if (screen.width >= 1280){scrollPic_01.frameWidth     = 609;}else{scrollPic_01.frameWidth     = 488;}
+                if (screen.width >= 1280){scrollPic_01.pageWidth      = 609;}else{scrollPic_01.pageWidth      = 488;}
+                scrollPic_01.speed          = 5; //移动速度(单位毫秒，越小越快)
+                scrollPic_01.space          = 10; //每次移动像素(单位px，越大越快)
+                scrollPic_01.autoPlay       = true; //自动播放
+                scrollPic_01.autoPlayTime   = 3; //自动播放间隔时间(秒)
+                scrollPic_01.initialize(); //初始化
+            </script>
+            <!--mscroll end-->
+        </div>
+        <!--幻灯片 滚动幻灯片结束-->
+       <div id="rand">
+            <a href="{$adrand.link}" target="_blank"><img src="__PUBLIC__/themes/{$Think.config.DEFAULT_THEME}/upload/{$adrand.ad_img}"></a>
+        </div>
+        <!--随机广告 end-->
+        <div class="m" id="studyimnews">
+        	<div class="mt">
+            	<h3>雪狐快报</h3>
+                <div class="extra"><a href="#" target="_blank">更多快报&nbsp;&gt;</a></div>
+            </div>
+            <div class="mc">
+            	<ul>
+                <volist name="article" id="voarticle">
+                	<li class="{$mod?'':'odd'}"><a href="{$voarticle.article_link}" target="_blank">{$voarticle.title}</a></li>
+                </volist>
+                </ul>
+            </div>
+        </div>
+        <!--雪狐快报 end-->
+        <!--雪狐首发 begin-->
+        <div id="studyimfirst" class="m">
+        	<div class="mt">
+            	<h3>雪狐首发</h3>
+            </div>
+            <div class="mc">
+            	<div class="item">
+                	<div>
+                    	<div class="p-img"><a href="##" target="_blank"><img width="100" height="100" alt="" src="../../../../public/themes/default/upload/firstpublish001.jpg"></a></div>
+                        <div class="p-title"><a href="#" target="###">方太全新一代风魔方</a></div>
+                        <div class="p-detail">
+                        方太全新一代风魔方，从此不怕炒辣椒。完美黄金控烟区，防止油烟逃逸，吸烟绝对给力。新品首发，直降1190元，重磅加赠价值558元阿里斯顿小厨宝，买得高端霸气，省钱省力气！
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+   		<!--雪狐首发 end-->
+    </div>
+ 	<!--全部商品楼层 begin-->
+    <div id="floors-list">
+        <!--单层begin-->
+        <div class="w w1">
+            <!--楼层左侧 begin-->
+            <div class="m m1 catalogue">
+                <div class="mt ld">
+                    <div class="floor">
+                        <b class="b b1" ></b>
+                        <b class="b b2" ></b>
+                        <b class="b b3">1F</b>
+                        <b class="b4"></b>
+                    </div> 
+                <h2>家电通讯</h2>
+                </div>
+                <div class="mc">
+                	<div class="style1">
+                    	<ul class="lh">
+                        	<li><a href="###">手机</a></li>
+                            <li><a href="###">空调</a></li>
+                            <li><a href="###">手机配件</a></li>
+                            <li><a href="###">平板电视</a></li>
+                            <li><a href="###">话费补贴</a></li>
+                            <li><a href="###">冰箱</a></li>
+                            <li><a href="###">生活电器</a></li>
+                            <li><a href="###">洗衣机</a></li>
+                            <li><a href="###">厨房电器</a></li>
+                            <li><a href="###">热水器</a></li>
+                            <li><a href="###">个户健康</a></li>
+                            <li><a href="###">烟机/灶具</a></li>
+                            <li><a href="###">五金家装</a></li>
+                            <li><a href="###">家庭影院</a></li>
+                            <li><a href="###">冷柜/冰吧</a></li>
+                            <li><a href="###">汽车用品</a></li>
+                        </ul>
+                        <span><a href="###" target="_blank"><img width="209" height="155" src="__PUBLIC__/themes/{$Think.config.DEFAULT_THEME}/upload/1floor_left.jpg"></a></span>
+                    </div>
+                </div>
+            </div>
+        	<!--楼层左侧 end-->
+        	<!--楼层中间-->
+            <div class="m plist">
+            	<div class="tab-arrow"><b></b></div>
+            	<!--中间第一列 begin-->
+                <div class="sm fore1 curr" data-widget="tab-item">
+                	<div class="smt">
+                    	<h3>特价商品</h3>
+                    </div>
+                    <div class="smc" data-widget="tab-content">
+     					<!--四格幻灯片 begin-->              
+                    	<div class="slide">
+                        	<div id="SlideMidFrame1" class="slide-itemswrap">
+                            	<div id="SlideMidContent1" class="slide-item">
+                                	<div><a href="###" target="_blank"><img src="__PUBLIC__/themes/{$Think.config.DEFAULT_THEME}/upload/1floor_mid_1.jpg"></a></div>
+                                    <div><a href="###" target="_blank"><img src="__PUBLIC__/themes/{$Think.config.DEFAULT_THEME}/upload/1floor_mid_2.jpg"></a></div>
+                                    <div><a href="###" target="_blank"><img src="__PUBLIC__/themes/{$Think.config.DEFAULT_THEME}/upload/1floor_mid_3.jpg"></a></div>
+                                    <div><a href="###" target="_blank"><img src="__PUBLIC__/themes/{$Think.config.DEFAULT_THEME}/upload/1floor_mid_4.jpg"></a></div>
+                                </div>
+                            </div>
+                            <div id="SlideMidBtn1" class="slide-controls">
+                            	<span class="active"><b></b></span>
+                                <span class=""><b></b></span>
+                                <span class=""><b></b></span>
+                                <span class=""><b></b></span>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+						new Marquee(
+						  {
+							  MSClassID :  "SlideMidFrame1",
+							  ContentID :  "SlideMidContent1",
+							  TabID :  "SlideMidBtn1",
+							  Direction : 2,
+							  Step : 0.2,
+							  Width : 473,
+							  Height : 180,
+							  Timer : 20,
+							  DelayTime : 0,
+							  WaitTime : 600000,
+							  ScrollStep: 0,
+							  SwitchType: 0,
+							  AutoStart : 1
+						  });
+                        </script>
+                        <!--四格幻灯片 end--> 
+                    </div>
+                </div>
+                <!--中间第一列 end-->
+                <!--中间第二列-->
+                <div class="sm fore2" data-widget="tab-item">
+                	<div class="smt">
+                    	<h3>大家电</h3>
+                    </div>
+                    <div class="smc" data-widget="tab-content">
+     					222               
+                    </div>
+                </div>
+            	<!--中间第二列-->
+                <!--中间第三列-->
+                <div class="sm fore3 " data-widget="tab-item">
+                	<div class="smt">
+                    	<h3>小家电</h3>
+                    </div>
+                    <div class="smc" data-widget="tab-content">
+     					333               
+                    </div>
+                </div>
+            	<!--中间第三列-->
+                <!--中间第四列-->
+                <div class="sm fore4" data-widget="tab-item">
+                	<div class="smt">
+                    	<h3>手机通讯</h3>
+                    </div>
+                    <div class="smc" data-widget="tab-content">
+     					444               
+                    </div>
+                </div>
+            	<!--中间第四列-->
+                <!--中间第五列-->
+                <div class="sm fore5" data-widget="tab-item">
+                	<div class="smt">
+                    	<h3>汽车五金</h3>
+                    </div>
+                    <div class="smc" data-widget="tab-content">
+     					555               
+                    </div>
+                </div>
+            	<!--中间第五列-->
+            </div>
+        </div>
+    	<!--单层end-->
+    </div>
+    <script type="text/javascript" src="__PUBLIC__/themes/{$Think.config.DEFAULT_THEME}/js/slide.js"></script>
+    <!--全部商品楼层end-->
+</body>
+</html>  

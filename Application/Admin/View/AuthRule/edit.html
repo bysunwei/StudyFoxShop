@@ -1,0 +1,54 @@
+<div class="pageContent">
+    <form method="post" action="__MODULE__/authRule/update" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone);">
+    	<input type="hidden" name="callbackType" value="closeCurrent" />
+        <input type="hidden" name="navTabId" value="{$Think.request.navTabId}"/>
+        <input type="hidden" name="id" value="{$Think.request.id}"/>
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>规则标示：</label>
+                <input type="text" name="name" class="required" size="33" maxlength="80" value="{$vo.name}" readonly style="color:blue"/>
+            </div>
+             <div class="unit">
+                <label>上层规则：</label>
+                <select name="pid" style="width:230px;">
+                	<option value="0">顶层</option>
+                    <volist name="list" id="volist">
+                   	<option value="{$volist.id}" <if condition="$volist.id eq $vo['pid']">selected</if> <if condition="$volist.level eq 3">disabled</if> >{$volist.title}</option>
+                    </volist>
+                </select>
+            </div>
+            <div class="unit">
+                <label>规则名称：</label>
+                <input type="text" name="title" class="required" size="33" maxlength="20" value="{$vo.title}"/>
+            </div>
+            <div class="unit">
+                <label>状　态：</label>
+                <select name="status" style="width:55px;">
+                	<option value="1" <if condition="$vo.status eq 1">selected</if> >正常</option>
+                    <option value="0" <if condition="$vo.status eq 0">selected</if> >停用</option>
+                </select>
+            </div>
+            <div class="unit">
+                <label>条　件：</label>
+                <input type="text" name="condition" class="" size="33" maxlength="100" value="{$vo.condition}"/>
+            </div>
+            <div class="unit">
+                <label>导航显示：</label>
+                 <select name="isnavshow" style="width:55px;">
+                	<option value="1" <if condition="$vo.isnavshow eq 1">selected</if> >显示</option>
+                    <option value="0" <if condition="$vo.isnavshow eq 0">selected</if> >隐藏</option>
+                </select>
+            </div>
+                <div class="unit">
+                <label>排　序：</label>
+                <input type="text" name="condition" class="required" size="33" maxlength="100" value="{$vo.sort}"/>
+            </div>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+                <div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+            </ul>
+        </div>
+    </form>
+</div>*

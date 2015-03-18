@@ -1,0 +1,80 @@
+@charset "utf-8";
+/**.file**/
+.tree .fadd { background:url("../fadd.gif") no-repeat}
+.tree .fadd:hover { background:url("../fadd.gif") 0 -24px no-repeat}
+.grid .gridHeader th { padding:0 5px;}
+.grid .gridTbody td { padding:0 5px; vertical-align:top; }
+.tableList {overflow:auto;}
+table.list th {padding:0 2px; background:url("../default/images/grid/tableth.png") repeat-x scroll 0 0 #F0EFF0; text-align:center}
+table.list td {padding:1px 3px; text-align:center}
+table.list a {font-size:12px;}
+table.table{width:100%}
+#taskbar .selectedHover { background-position:0 -350px;}
+#taskbar .selectedHover .taskbutton { background-position:100% -400px;}
+span.error {  width:auto; padding:0 5px; }
+/* Combox */
+select { height:21px; font-size:12px;}
+.buttonActive button, .buttonDisabled button, .button button {  line-height:25px;  padding:0 5px;}
+#header .logo { margin-right:5px;}
+#header .logo a{ float:left; width:250px; height:50px; text-indent:-1000px;}
+#header .right{float:right;}
+#header .nav li.first { background: none; }
+/* navMenu */
+#navMenu { float:left; height:50px;}
+#navMenu li { margin:0 1px;}
+#navMenu li a { text-decoration:none;}
+#navMenu li a, #navMenu li span { line-height:50px;}
+.pageFormContent div { clear:both; display:block; overflow:hidden; height:auto;}
+.pageFormContent div { clear:both; display:block; overflow:hidden; height:auto;}
+.pageFormContent div.unit {display:block; _width:100%; margin:0; padding:5px 0; position:relative;}
+.pageFormContent div.unit label { width:100px;}
+.pageFormContent div.unit label.radioButton { float:left; width:auto; padding:0 10px 0 0; line-height:21px;}
+/** ұߵ **/
+.pageFormContent div.unit input,.pageFormContent div.unit select,.pageFormContent div.unit textarea{float:left}
+.pageFormContent div.unit dl{padding:0;}
+.pageFormContent div.unit dl label{min-width:0;padding:0 2px 0 0;}
+.pageFormContent div.unit dl a.b{font-size:18px; font-weight:bold; font-family:Tahoma, Geneva, sans-serif;}
+.pageFormContent div.unit dl a.i{font-size:18px; font-weight:bold; font-family:Tahoma, Geneva, sans-serif; font-style:italic;}
+.pageFormContent div.unit ul{float:left; width:auto;}
+.pageFormContent div.unit ul li{ padding:2px 0;}
+.pageFormContent div.unit ul li:hover{color:#0080FF; font-weight:bold}
+.pageFormContent div.unit ul label{float:none; width:auto;padding:0;}
+.pageFormContent p.textareaBar { height:auto;}
+.pageFormContent span { float:left; line-height:21px; padding-left:5px;}
+.pageForm .formBar { clear:both; padding:0 5px; height:30px; padding-top:5px; border-style:solid; border-width:1px 0 0 0;}
+.pageForm .formBar ul { float:right;}
+.pageForm .formBar li { float:left; margin-left:5px;}
+.divider { clear:both; display:block; overflow:hidden; text-indent:-1000px; width:auto; height:1px; padding:4px 0 0 0; margin-bottom:5px; border-style:dotted; border-width:0 0 1px 0;}
+.pageForm .formBar { clear:both; padding:0 5px; height:30px; padding-top:5px; border-style:solid; border-width:1px 0 0 0;}
+.pageForm .formBar ul { float:right;}
+.pageForm .formBar li { float:left; margin-left:5px;}
+.divider { clear:both; display:block; overflow:hidden; text-indent:-1000px; width:auto; height:1px; padding:4px 0 0 0; margin-bottom:5px; border-style:dotted; border-width:0 0 1px 0;}
+.layoutBox .header{clear:both; padding:0 10px; height:28px; line-height:30px; background-color:#E8EDF3; color:#6787AD; font-weight:bold;}
+/* Pages dialog */
+.dialog .pageHeader { border-style:solid; border-width:1px;}
+.dialog .pageContent { border-style:solid; border-width:0 1px;}
+.dialog .pageContent .pageFormContent { border-style:solid; border-width:1px 0 0 0;}
+.dialog .pageContent .formBar { border-style:solid; border-width:1px 0;}
+#calendar{margin:0; width:185px; z-index:1001; position:absolute; display:block; border:1px solid #B3E4EB; display:none;}
+#calendar .body{margin:2px 0; padding-left:5px; padding-bottom:4px; clear:both; overflow:hidden; border:1px solid #BEE9F0;position:relative;}
+#calendar dt, #calendar dd, #calendar span{width:22px; height:18px; display:block; float:left; overflow:hidden;zoom:1; border:1px solid #fff;}
+.combox { float:left; margin-right:3px; background-position:100% -25px;}
+.combox select { display:none}
+.combox .select { float:left; position:relative;}
+.combox .select a { float:left; display:block; overflow:hidden; height:23px; padding:0 22px 0 6px; line-height:21px; text-decoration:none; font-size:12px; background-position:100% -50px;}
+.comboxop { position: absolute; z-index: 1001; display:none; padding:4px; border-style:solid; border-width:1px 2px 2px 1px; background:#fff; position:absolute; top:22px; left:1px;}
+.comboxop a { width:50px; height:21px; padding:0 5px; line-height:21px; text-align:left; color:#000; background:none;}
+.comboxop a:hover { background:#e0e0e0;}
+.comboxop .selected { background:#e0e0e0; }
+.comboxop li { text-align:left; }
+.button { background-position:0 -200px;}
+.searchBar ul.searchContent li { width:250px;}
+.searchBar label { width:auto;}
+.pbtitle {line-height:25px; margin-top:5px; padding-left:5px; font-weight:bold;}
+/* www.studyfox.com add */
+a.btn{background-color:#289FD2; color:#FFF;text-decoration:none; padding:4px; display:block; float:left; text-align:center; margin-left:2px;}
+a.btn:hover,a.btn:active{background-color:#F60;color:#FFF;}
+.Content{ background-color:#FFF} 
+.xingmu{background-color:#E1FFFF; font-style:italic}
+.success{color:#090; font-style:inherit}
+.err{color:#F00}

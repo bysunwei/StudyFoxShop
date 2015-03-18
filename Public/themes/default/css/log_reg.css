@@ -1,0 +1,70 @@
+/* CSS Document */
+/* 公共*/
+*{ margin:0 auto; padding:0}
+ul{ list-style:none}
+ul li{ float:left}
+a{ color:#666; text-decoration:none}
+a:hover{ text-decoration:underline}
+img{ border:medium none}
+body{ font:12px/150% Arial, Helvetica, sans-serif,"宋体b8b\4f53"; color:#333; background:#f2f2f2}
+
+.w{ width:990px;}
+
+/*logo*/
+.logo{ padding:20px 0}
+.logo a{ padding-right:10px}
+.logo span{ width:111px; height:46px; background:url(../images/login_word.png) no-repeat; display:inline-block;}
+
+/*登录*/
+#formlogin{ display:block; position:relative}
+#formlogin .entry{ width:890px; background:#e8e8e8; border-radius:3px; margin:60px auto 50px; -webkit-border-radius:3px; -moz-border-radius:3px; padding:5px}
+#formlogin .entry .mc{ height:354px; border:1px solid #e1e1e1; background:#ffffff}
+#formlogin .forminf{ width:307px; height:340px; float:right; padding-right:40px; padding-top:14px}
+#formlogin .item{ height:64px; line-height:26px; width:307px} 
+#formlogin .item span{ color:#999999; height:20px; line-height:20px; display:block}
+#formlogin .item .info{ width:317px; position:relative}
+#formlogin .info .text{ width:282px; height:24px; line-height:24px; padding:4px 30px 4px 3px; border:1px solid #cccccc; font-size:14px; outline:none}
+#formlogin .info .icon{ width:16px; height:16px; position:absolute; top:8px; right:10px }
+#formlogin .info .i_name{ background: url(../images/loginname.jpg) no-repeat #fff}
+#formlogin .info .i_pwd{ background: url(../images/loginpwd.jpg) no-repeat #fff}
+#formlogin .info .text_code{ width:100px; float:left;}
+#formlogin .info .img{ height:26px; vertical-align:middle; float:left;margin:0 5px }
+#formlogin .info .hline{ line-height:16px; color:#999; float:left}
+#formlogin .info .hline a{ color: #005aa0}
+#formlogin .fore4{ height:37px; margin-top:5px}
+#formlogin .fore4 a{ color:#333;}
+#formlogin .fore4 a:hover{ color:red;}
+#formlogin .fore4 .checkbox{ vertical-align:text-bottom; margin-left:5px}
+#formlogin .fore4 .mar{ margin-right:5px}
+#formlogin .login{ height:49px;}
+#formlogin .login .btn_login{ outline:none ;width:307px; height:34px; line-height:34px; background:url(../images/login_img.png) no-repeat 0 0; border:none; text-align:center}
+#formlogin .login .btn_login:hover{background:url(../images/login_img.png) no-repeat 0 -34px; cursor:pointer}
+#formlogin .item .loginmore{ color:#999}
+#formlogin .item .clear{ padding-top:5px ;line-height:14px; height:14px}
+#formlogin .item .clear li{ padding:0 5px;border-right:1px solid #dbdbdb; cursor:pointer}
+.border_none{ border:none !important; }
+#formlogin .free_regist{ 
+position: absolute; top:360px; right:80px; width:115px; height:32px; background:#e8e8e8;line-height:32px; text-align:center;-webkit-border-radius:3px; -moz-border-radius:3px; padding:0 5px 5px;border-radius:0 0 3px 3px;
+}
+#formlogin .free_regist span{ background:#7cbe56; width:115px; height:32px; display:block; color:#fff;-webkit-border-radius:3px; -moz-border-radius:3px;border-radius:0 0 3px 3px;
+}
+#formlogin .free_regist span:hover{ background:#89c964}
+#formlogin .free_regist a{ color:#fff; font-size:14px}
+#formlogin .free_regist a:hover{ text-decoration:none}
+
+/*阴影背景*/
+.space{ width:890px; margin:0 auto}
+.space .mb{ background:url(../images/mb_bg.jpg) no-repeat; height:59px; width:853px}
+
+/*页脚*/
+#footer{ width:600px; padding-top:20px}
+#footer li{ }
+#footer li a{ margin:0 10px; color:#333}
+#footer li a:hover{color:#ff0000;}
+/*版权所有*/
+.copyright{ width:600px; text-align:center; padding-top:40px}
+
+/*input输入错误提示*/
+.errorinfo{ position:absolute; width:312px; line-height:16px; padding:2px 0 2px 3px; background:#ffebec; top:34px; left:0; border:1px solid #ffbdbf; color:#e6393d; }
+.highlight{ border:1px solid #7abd54 !important}
+.highlight_error{ border:1px solid #ff0000 !important}

@@ -1,0 +1,49 @@
+<div class="pageContent">
+    <form method="post" action="__URL__/update" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone);">
+    	<input type="hidden" name="callbackType" value="closeCurrent" />
+        <input type="hidden" name="navTabId" value="{$Think.request.navTabId}"/>
+         <input type="hidden" name="id" value="{$Think.request.id}"/>
+        <div id="connect_combox" class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>分类名称：</label>
+               	<select name="cat_id">
+                <volist name="categorylist" id="vo">
+                	<option value="{$vo.id}" <if condition="$vo.id eq $cat_id">selected </if> >{$vo.cat_name}</option>
+                </volist>
+                </select>
+            </div>
+            <div class="unit">
+              <label>父类属性名：</label>
+              <select name="pid" >
+              	<volist name="attrlist" id="vo">
+                	<option value="{$vo[0]}" <if condition="$vo[0] eq $pid ">selected </if> value="">{$vo[1]}</option>
+                </volist>
+                  
+              </select>
+            </div>
+            <div class="unit">
+              <label>属性名称：</label>
+           	  <input type="text" name="title" class="require" size="33" maxlength="20" value="{$attr.title}">
+            </div>
+            <div class="unit">
+               <label>层：</label>
+               <select name="level">
+               	   <option value="1" <if condition="$attr.level eq 1">selected </if> >1</option>
+                   <option value="2" <if condition="$attr.level eq 2">selected </if>>2</option>
+               </select>
+            </div>
+            <div class="unit">
+            <label>排序：</label>
+            <input type="text" name="sort" class="require" size="33" maxlength="20" value="{$attr.sort}">
+          </div>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+                <div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+            </ul>
+        </div>
+    </form>
+</div>
+
+

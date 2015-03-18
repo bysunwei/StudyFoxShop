@@ -1,0 +1,72 @@
+<script>
+	function checkHome(obj,pid)
+	{
+		var checked=obj.checked;
+		if(checked)
+		{
+			$('[pid='+pid+']').attr('checked',true);	
+		}else{
+			$('[pid='+pid+']').attr('checked',false);	
+		}
+	}
+	function check(obj,id,pid)
+	{
+		var checked=obj.checked;
+		if(checked)
+		{
+			//alert(0);
+			$('.check'+id).attr('checked',true);		
+		}else{
+			//alert(1);
+			$('.check'+id).attr('checked',false);
+		}
+		home(pid);
+	}
+	function home(pid){
+		var homeCheckLength=$('[pid='+pid+']:checked').length;
+		if(homeCheckLength>0){
+		$('#'+pid).attr('checked',true);	
+		}else{
+		$('#'+pid).attr('checked',false);
+		}
+	}
+	function checkChild(id,pid){
+		var checkedLength=$('.check'+id+':checked').length;
+		if(checkedLength>0)
+		{
+			$('#check'+id).attr('checked',true);
+		}else{
+			$('#check'+id).attr('checked',false);
+		}
+		home(pid);
+	}
+</script>
+
+<div class="pageContent" style="border-top-width:1px">
+    <form method="post" action="__MODULE__/authGroup/updateGroup" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone);">
+     	<input type="hidden" name="ruleid" value="{$Think.get.id}" />
+        <input type="hidden" name="callbackType" value="closeCurrent"  />
+        <div layoutH='37'>
+        	<volist name="node" id="node1">
+            	<h2 class="contentTitle" style="border-bottom:none; background-color:#ebf0f5; margin-bottom:0"><input value="{$node1.id}" type="checkbox" id="{$node1.id}" name="rule_id[]" <in name="node1.id"  value="$selectdnode[0].rules" >checked</in>  onclick="checkHome(this,{$node1.id})"/>{$node1.title}</h2>
+                <div class="pageFormContent" style="border-width:0"> 
+                	<volist name="node1._child" id="node2">
+                    	<fieldset>
+                        	<legend><input value="{$node2.id}" type="checkbox" name="rule_id[]" <in name="node2.id" value="$selectdnode[0].rules" >checked</in> id="check{$node2.id}" pid="{$node1.id}" onclick="check(this,{$node2.id},{$node1.id})" />{$node2.title}</legend>
+                            <volist name="node2._child" id="node3">
+                            <label style=" width:100px"><input value="{$node3.id}" type="checkbox" name="rule_id[]" <in name="node3.id" value="$selectdnode[0].rules" >checked</in> pid="{$node1.id}" class="check{$node2.id}"  onclick="checkChild({$node2.id},{$node1.id})"/>{$node3.title}</label>
+                            </volist>
+                        </fieldset>
+                    </volist>
+                </div>
+            </volist>
+        </div>
+        <div class="formBar">
+        	<label><input type="checkbox"  group="rule_id[]" class="checkboxCtrl" />全选</label>
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+                <div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+            </ul>
+        </div>
+    </form>
+</div>

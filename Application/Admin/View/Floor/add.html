@@ -1,0 +1,54 @@
+<style type="text/css">
+.pageFormContent span{ padding-left:0}
+</style>
+
+<div class="pageContent">
+    <form method="post" action="__CONTROLLER__/insert" enctype="multipart/form-data" class="pageForm required-validate" onsubmit="return iframeCallback(this,dialogAjaxDone);">
+    	<input type="hidden" name="callbackType" value="closeCurrent" />
+        <input type="hidden" name="navTabId" value="{$Think.request.navTabId}"/>
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>分类名称：</label>
+               	 <select name="pid" style="width:230px;">
+                  <volist name="floorlist" id="volist">
+                    <option value="{$volist.id}" >{$key+1}&nbsp;楼：{$volist.name}</option>
+                  </volist>
+                  </select>
+            </div>
+            <div class="unit">
+                <label>分类名称：</label>
+                <input type="text" name="group.attrName" class="readonly" size="33" value="" readonly="readonly"/>
+                <a class="unit btn" href="__URL__/searchCategory" target="dialog" mask="true" title="选择商品分类" width="800" height="600" lookupGroup="group">选择公共属性</a>
+            </div>
+            <div class="unit">
+                <label>设置：</label>
+                <select name="position" style="width:198px" >
+                	<option>主分类</option>
+                    <option value="1">左</option>
+                    <option value="2">中</option>
+                </select>
+            </div>
+              <div class="unit">
+                <label>链接：</label>
+                <input type="text" name="group.attrId" class="required" size="33" value="" readonly="readonly" / >
+            </div>
+            <div class="unit">
+                 <label>是否显示：</label>
+                <select name="is_show" style="width:198px" >
+                    <option value="1">是</option>
+                    <option value="0">否</option>
+                </select>
+            </div>
+            <div class="unit">
+                <label>排序：</label>
+                <input type="text" name="sort" class="required" maxlength="22" size="33" value=""/>
+            </div>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+                <div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+            </ul>
+        </div>
+    </form>
+</div>

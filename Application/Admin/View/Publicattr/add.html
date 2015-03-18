@@ -1,0 +1,49 @@
+<style>
+	#connect_combox .combox{ position:absolute; left:110px;}
+</style>
+
+<div class="pageContent">
+    <form method="post" action="__URL__/insert" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone);">
+    	<input type="hidden" name="callbackType" value="closeCurrent" />
+        <input type="hidden" name="navTabId" value="{$Think.request.navTabId}"/>
+        <div id="connect_combox" class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>分类名称：</label>
+               	<select name="cat_id" class="combox" ref="combox_attr" refUrl="__CONTROLLER__/returnAttr/cat_id/{value}">
+                <volist name="categorylist" id="vo">
+                	<option value="{$vo.id}" <if condition="$vo.cat_level neq 3">disabled </if> >{$vo.cat_name}</option>
+                </volist>
+                </select>
+            </div>
+            <div class="unit">
+              <label>父类属性名：</label>
+              <select name="pid" class="combox" id="combox_attr">
+                  <option value="">顶层</option>
+              </select>
+            </div>
+            <div class="unit">
+              <label>属性名称：</label>
+           	  <input type="text" name="title" class="require" size="33" maxlength="20" value="">
+            </div>
+            <div class="unit">
+               <label>层：</label>
+               <select name="level">
+               	   <option value="1">1</option>
+                   <option value="2">2</option>
+               </select>
+            </div>
+            <div class="unit">
+            <label>排序：</label>
+            <input type="text" name="sort" class="require" size="33" maxlength="20" value="">
+          </div>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+                <div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+            </ul>
+        </div>
+    </form>
+</div>
+
+

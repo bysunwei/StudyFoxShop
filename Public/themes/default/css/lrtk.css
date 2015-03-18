@@ -1,0 +1,21 @@
+/* 懒人图库 搜集整理 www.lanrentuku.com */
+
+/* css 重置 */
+body,div,ul,li { padding: 0; margin: 0; }
+ul { list-style: none ; }
+img { border: none; }
+a { blr: expression(this.onFocus=this.blur()); outline: none; }
+
+/*本例css*/
+.slide { width: 670px; height: 240px; position: relative; overflow:hidden; }
+
+/*数字按钮样式*/
+.slide .num { overflow:hidden; height: 25px; position: absolute; bottom:12px;  zoom:1; right:0 }
+.slide .num li { width: 22px; height: 22px; line-height: 22px; text-align: center;font-family: "microsoft yahei", Arial; color: #FFFFFF; background: #999; margin-right:  10px; border-radius:50%; cursor:pointer; float: left; }
+.slide .num li.on { background: #E4393C; } /*当前项*/
+
+/*上一个  下一个*/
+.slide .prev,
+.slide .next { display: none; width: 40px; height: 100px; background: url(../images/btn.png) no-repeat; position: absolute; top: 115px;}
+.slide .prev { left: 0; }
+.slide .next { right: 0; background-position: right }

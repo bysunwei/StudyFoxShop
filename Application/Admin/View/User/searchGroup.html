@@ -1,0 +1,16 @@
+<div class="pageContent">
+	<div class="pageFormContent" layoutH="58">
+    	<volist name="grouplist" id="vo">
+        <div class="unit">
+        	<input type="checkbox" name="groupInf" value="{id:'{$vo.id}',groupName:'{$vo.title}',groupId:'{$vo.id}'}" <in name="vo.id" value="$Think.get.groupId">checked</in> />{$vo.title}{$vo.id}
+         </div>
+        </volist>
+    </div>
+     <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="button" multLookup="groupInf">选择带回</button></div></div></li>
+                <div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+            </ul>
+      </div>
+</div>
+
